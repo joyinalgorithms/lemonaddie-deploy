@@ -1,0 +1,50 @@
+.coming-soon {
+    width: 100%;
+    max-width: 400px;
+    min-width: 200px;
+    max-height: 500px;
+    min-height: 200px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #161b22;
+    border: 2px solid #58a6ff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+    position: relative;
+    flex: 1 1 200px;
+    margin: 100px auto;
+    padding: 20px;
+    transition: width 0.3s ease;
+}
+
+
+.message {
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    color: #c9d1d9;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #58a6ff;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem;
+    color: #8b949e;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

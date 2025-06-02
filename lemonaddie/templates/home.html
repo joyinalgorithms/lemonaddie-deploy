@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block title %} Home {% endblock %}
+
+{% block stylesheet %}
+
+{% endblock %}
+
+{% block main %}
+
+    <div class="container my-4">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="menu-card" style="background-color:  rgb(0, 0, 0)">
+                    <h2>Best Sellers</h2>
+                    <img src="/static/images/Cover/Best Sellers.jpg" alt="Best Sellers" class="menu-image">
+                    <button class="btn-select"> <a href="products#bestsellers">See more</a></button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="menu-card" style="background-color:  rgb(0, 0, 0)">
+                    <h2>Lemonaddie Drinks</h2>
+                    <img src="/static/images/Cover/Refreshment Drinks.jpg" alt="Lemonaddie Drinks" class="menu-image">
+                    <button class="btn-select"> <a href="products#drinks">See more</a></button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="menu-card" style="background-color:  rgb(0, 0, 0)">
+                    <h2>Mix & Match</h2>
+                    <img src="/static/images/Cover/Mix & Match.jpg" alt="Mix&Match" class="menu-image mixmatchimg">
+                    <button class="btn-select"> <a href="products#mixmatch">See more</a></button>
+                </div>
+            </div>
+            <div class="col bottomcol">
+                <div class="menu-card" style="background-color:  rgb(0, 0, 0)">
+                    <h2>Snacks on the Go</h2>
+                    <img src="/static/images/Cover/Mix & Match.jpg" alt="Snacks" class="menu-image">
+                    <button class="btn-select"> <a href="products#snacks">See more</a></button>
+                </div>
+            </div>
+            <div class="col bottomcol">
+                <div class="menu-card" style="background-color: rgb(0, 0, 0)">
+                    <h2>Combo Meal</h2>
+                    <img src="/static/images/Cover/Combo Meal.jpg" alt="Chaofan" class="menu-image">
+                    <button class="btn-select"> <a href="products#combomeal">See more</a></button>
+                </div>
+            </div>
+            <div class="col bottomcol">
+                <div class="menu-card" style="background-color: rgb(0, 0, 0)">
+                    <h2>Full Menu</h2>
+                    <img src="/static/images/Cover/menu.jpg" alt="Chaofan" class="menu-image">
+                    <button class="btn-select"> <a href="products#bestsellers">See more</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,189 @@
+{% extends "layout.html" %}
+{% block title %} Admin {% endblock %}
+
+{% block main %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Admin Dashboard</h1>
+        <ul class="nav nav-tabs mb-3" id="adminTabs" role="tablist">
+            <li class="nav-item">
+                <button class="nav-link active" id="products-tab" data-bs-toggle="tab" data-bs-target="#products" type="button" role="tab">Products</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="employees-tab" data-bs-toggle="tab" data-bs-target="#employees" type="button" role="tab">Employees</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab">Reviews</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" id="orders-tab" data-bs-toggle="tab" data-bs-target="#orders" type="button" role="tab">Orders</button>
+            </li>
+
+        </ul>
+
+        <div class="tab-content" id="adminTabContent">
+            <div class="tab-pane fade" id="orders" role="tabpanel">
+                <div class="d-flex justify-content-between mb-3">
+                    <h3>Orders</h3>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Product Name</th>
+                            <th>Quantity</th>
+                            <th>Variant Name</th>
+                            <th>Add-ons</th>
+                            <th>Subtotal</th>
+                            <th>Order Date</th>
+                            <th>Total Amount</th>
+                            <th>Delivery Address</th>
+                            <th>Order Notes</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTableBody">
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade show active" id="products" role="tabpanel">
+                <div class="d-flex justify-content-between mb-3">
+                    <h3>Products</h3>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEditProductModal">Add Product</button>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody" class="productsTables">
+                    </tbody>
+                </table>
+            </div>
+            <div class="tab-pane fade" id="employees" role="tabpanel">
+                <div class="d-flex justify-content-between mb-3">
+                    <h3>Employees</h3>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addEditEmployeeModal">Add Employee</button>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Privilege</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employeesTableBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-pane fade" id="reviews" role="tabpanel">
+                <div class="d-flex justify-content-between mb-3">
+                    <h3>Reviews</h3>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer ID</th>
+                            <th>Feedback</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reviewsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addEditProductModal" tabindex="-1" aria-labelledby="addEditProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="productForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addEditProductModalLabel">Add/Edit Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="productName" name="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productCategory" class="form-label">Category</label>
+                            <input type="text" class="form-control" id="productCategory" name="category" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="productDescription" name="description"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label">Image URL</label>
+                            <input type="url" class="form-control" id="productImage" name="image">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addEditEmployeeModal" tabindex="-1" aria-labelledby="addEditEmployeeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="employeeForm">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addEditEmployeeModalLabel">Add/Edit Employee</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="employeeFirstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="employeeFirstName" name="firstname" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeLastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="employeeLastName" name="lastname" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="employeeEmail" name="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeePrivilege" class="form-label">Privilege</label>
+                            <select class="form-control" id="employeePrivilege" name="privilege" required>
+                                <option value="Admin">Admin</option>
+                                <option value="Employee">Employee</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeeUsername" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="employeeUsername" name="username" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="employeePassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="employeePassword" name="password" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

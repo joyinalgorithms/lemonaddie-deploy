@@ -1,0 +1,101 @@
+body {
+    height: auto;
+    min-height: 900px;
+}
+.product-container {
+    width: 100%;
+    padding: 30px;
+    font-family: "Poppins";
+    font-weight: 700;
+}
+
+.product-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.product-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+.product {
+    height: 430px;
+    width: 330px;
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    letter-spacing: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 50px;
+}
+
+.product-name {
+    text-align: center;
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.product-name h4 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    word-break: break-word;
+}
+
+.product-img-container {
+    width: 100%;
+    height: 70%;
+}
+
+.product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 20px;
+}
+
+.addtocartcontainer {
+    display: flex;
+    gap: 10px;
+}
+
+.addtocart {
+    background-color: rgb(218, 165, 32);
+    border: none;
+    padding: 5px 50px;
+    border-radius: 20px;
+    transition: opacity 0.20s;
+}
+
+.addtocart:hover {
+    opacity: 0.8;
+}
+
+.addtocart:active {
+    opacity: 0.5;
+}
+
+.quantity {
+    width: 60px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    padding: 5px;
+}
+
+.quantity:hover {
+    outline: none;
+    box-shadow: none;
+}

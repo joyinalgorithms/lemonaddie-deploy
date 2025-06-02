@@ -1,0 +1,164 @@
+{% extends "layout.html" %}
+{% block title %} Products {% endblock %}
+{% block main %}
+
+    <div class="product-container">
+        <h3 id="bestsellers">Best Sellers</h3>
+        <div class="product-col">
+            <div class="product-row">
+                {% for product in best_sellers_products %}
+                    <div class="product">
+                        <div class="product-img-container">
+                            <img class="product-img" src="{{ product.product_image }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="product-name">
+                            <h4>{{ product.name }}</h4>
+                        </div>
+                        <div class="product-price">
+                            {% if product['default_price'] is not none %}
+                                <h4>₱{{ "%.2f" | format(product['default_price']) }}</h4>
+                            {% else %}
+                                <h4>N/A</h4>
+                            {% endif %}
+                        </div>
+
+                        <div class="addtocartcontainer">
+                            <form action="/add_to_cart" method="post">
+                                <input type="hidden" name="product_id" value="{{ product.productid }}">
+                                <input class="quantity" type="number" name="quantity" placeholder="Qty" min="1">
+                                <button type="submit" class="addtocart">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <h3 id="drinks">Drinks</h3>
+        <div class="product-col">
+            <div class="product-row">
+                {% for product in drinks_products %}
+                    <div class="product">
+                        <div class="product-img-container">
+                            <img class="product-img" src="{{ product.product_image }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="product-name">
+                            <h4>{{ product.name }}</h4>
+                        </div>
+                        <div class="product-price">
+                            {% if product.default_price is not none %}
+                                <h4>₱{{ "%.2f" | format(product.default_price) }}</h4>
+                            {% else %}
+                                <h4>N/A</h4>
+                            {% endif %}
+
+                        </div>
+
+                        <div class="addtocartcontainer">
+                            <form action="/add_to_cart" method="post">
+                                <input type="hidden" name="product_id" value="{{ product.productid }}">
+                                <input class="quantity" type="number" name="quantity" placeholder="Qty" min="1">
+                                <button type="submit" class="addtocart">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <h3 id="mixmatch">Mix & Match</h3>
+        <div class="product-col">
+            <div class="product-row">
+                {% for product in mixmatch_products %}
+                    <div class="product">
+                        <div class="product-img-container">
+                            <img class="product-img" src="{{ product.product_image }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="product-name">
+                            <h4>{{ product.name }}</h4>
+                        </div>
+                        <div class="product-price">
+                            {% if product.default_price is not none %}
+                                <h4>₱{{ "%.2f" | format(product.default_price) }}</h4>
+                            {% else %}
+                                <h4>N/A</h4>
+                            {% endif %}
+
+                        </div>
+                        <div class="addtocartcontainer">
+                            <form action="/add_to_cart" method="post">
+                                <input type="hidden" name="product_id" value="{{ product.productid }}">
+                                <input class="quantity" type="number" name="quantity" placeholder="Qty" min="1">
+                                <button type="submit" class="addtocart">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <h3 id="combomeal">Combo Meal</h3>
+        <div class="product-col">
+            <div class="product-row">
+                {% for product in combo_products %}
+                    <div class="product">
+                        <div class="product-img-container">
+                            <img class="product-img" src="{{ product.product_image }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="product-name">
+                            <h4>{{ product.name }}</h4>
+                        </div>
+                        <div class="product-price">
+                            {% if product.default_price is not none %}
+                                <h4>₱{{ "%.2f" | format(product.default_price) }}</h4>
+                            {% else %}
+                                <h4>N/A</h4>
+                            {% endif %}
+
+                        </div>
+                        <div class="addtocartcontainer">
+                            <form action="/add_to_cart" method="post">
+                                <input type="hidden" name="product_id" value="{{ product.productid }}">
+                                <input class="quantity" type="number" name="quantity" placeholder="Qty" min="1">
+                                <button type="submit" class="addtocart">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <h3 id="snacks">Snacks on the go</h3>
+        <div class="product-col">
+            <div class="product-row">
+                {% for product in snacks_products %}
+                    <div class="product">
+                        <div class="product-img-container">
+                            <img class="product-img" src="{{ product.product_image }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="product-name">
+                            <h4>{{ product.name }}</h4>
+                        </div>
+                        <div class="product-price">
+                            {% if product.default_price is not none %}
+                                <h4>₱{{ "%.2f" | format(product.default_price) }}</h4>
+                            {% else %}
+                                <h4>N/A</h4>
+                            {% endif %}
+
+                        </div>
+                        <div class="addtocartcontainer">
+                            <form action="/add_to_cart" method="post">
+                                <input type="hidden" name="product_id" value="{{ product.productid }}">
+                                <input class="quantity" type="number" name="quantity" placeholder="Qty" min="1">
+                                <button type="submit" class="addtocart">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+{% endblock %}

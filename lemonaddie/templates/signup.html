@@ -1,0 +1,48 @@
+{% extends "loglayout.html" %}
+{% block title %} Signup{% endblock %}
+
+{% block main %}
+    <h3>Sign up to Lemonaddie</h3>
+    <form method="POST" action="/signup">
+        <div class="input-col">
+            <div class="input-row">
+                <input name="firstname" type="text" placeholder="First Name" required>
+                <input name="lastname" type="text" placeholder="Last Name" required>
+            </div>
+            <div class="input-row">
+                <input name="username" type="text" placeholder="Username" required>
+                <input name="email" type="email" placeholder="Email" required>
+            </div>
+            <div class="input-row">
+                <input name="address" type="text" placeholder="Address">
+                <input name="phone" type="text" placeholder="Phone">
+            </div>
+            <form id="signup-form" action="/signup" method="POST">
+                <div class="input-row">
+                    <div class="password-container">
+                        <input id="password" name="password" type="password" placeholder="Password" required autocomplete="off">
+                        <span class="eye-icon" onclick="togglePassword('password')">&#128065;</span>
+                    </div>
+                    <div class="password-container">
+                        <input id="confirm-password" name="confirm-password" type="password" placeholder="Confirm Password" required autocomplete="off">
+                        <span class="eye-icon" onclick="togglePassword('confirm-password')">&#128065;</span>
+                    </div>
+                </div>
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I have fully read, understood, and agree to the <a href="/termsconditions">Terms of Service</a> and <a href="/privacynotice">Privacy Policy</a></label>
+                </div>
+                <button class="signup-btn">Create Account</button>
+                <a class="signuphere" href="/login">Already have an account? Sign in here</a>
+            </form>
+
+
+
+            {% if error_message %}
+                <p style="color:red;">{{ error_message }}</p>
+            {% endif %}
+
+
+        </div>
+    </form>
+{% endblock %}

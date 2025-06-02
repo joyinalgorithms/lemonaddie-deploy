@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %} Search {% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="/static/styles/search.css">
+{% endblock %}
+{% block main %}
+
+    {% if products %}
+        <div class="cart-container">
+            <div class="search-product-container">
+                {% for product in products %}
+
+                    <div class="product">
+                        <div class="product-img-container">
+                            <img class="product-img" src="{{ product.product_image }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="product-name">
+                            <h4>{{ product.name }}</h4>
+                        </div>
+                        <div class="product-price">
+                            ₱{{ "%.2f" | format(product.get("default_price", 0)) }}
+                        </div>
+                        <div class="addtocartcontainer">
+                            <form action="/add_to_cart" method="post">
+                                <input type="hidden" name="product_id" value="{{ product.productid }}">
+                                <input class="quantity" type="number" name="quantity" placeholder="Qty" min="1">
+                                <button type="submit" class="addtocart">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    {% else %}
+        <p class="no-results">No results found for "{{ query }}"</p>
+    {% endif %}
+
+{% endblock %}

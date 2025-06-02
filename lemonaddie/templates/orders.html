@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+{% block title %} Orders {% endblock %}
+{% block main %}
+    <h2 class="order-header-text">Review your order</h2>
+    <div class="cart-full-container">
+
+        <div class="cart-container">
+            <div class="products-flex-col">
+                {% for item in cart_items %}
+                    <div class="order-container">
+                        <div class="picture-container">
+                            <img class="item-image" src="{{ item.product_image }}" alt="{{ item.name }}">
+                        </div>
+                        <div class="details-container">
+                            <div class="item-name">
+                                <strong>{{ item.name }}</strong>
+                            </div>
+                            <div class="item-price price-value" id="price-{{ item.productid }}">
+                                ₱{{ "%.2f" | format(item.get("default_price", 0)) }}
+                            </div>
+
+                            <div class="item-quantity">
+                                <span>Quantity: {{ item.quantity }}</span>
+                                <span><a href="/products" style="text-decoration: none; color: inherit;">Update</a></span>
+                                <span>
+                                    <form action="/delete_from_cart" method="POST" style="display:inline;">
+                                        <input type="hidden" name="product_id" value="{{ item.productid }}">
+                                        <input type="hidden" name="session_id" value="{{ item.sessionid }}">
+                                        <button type="submit" style="background:none; border:none; cursor:pointer;">Delete</button>
+                                    </form>
+                                </span>
+                            </div>
+                            <form method="POST" class="product-form">
+                                <div class="size-dropdown-container">
+                                    <div class="product-card" data-product-id="{{ item.productid }}" data-category="{{ item.category }}">
+                                        <div class="item-quantity">
+                                            <label for="size-dropdown-{{ item.productid }}" class="dropdown-label">Size:</label>
+                                            <select id="size-dropdown-{{ item.productid }}" name="selected_variant_{{ item.productid }}" class="size-dropdown">
+                                                <option value="" disabled selected>Select Size</option>
+                                                {% for variant in item.variants %}
+                                                    <option value="{{ variant.variant_name }}" {% if variant.variant_name == item.selected_variant %} selected {% endif %}>{{ variant.variant_name }}</option>
+                                                {% endfor %}
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="addson-dropdown-container">
+                                    <div class="product-card" data-product-id="{{ item.productid }}" data-category="{{ item.category }}">
+                                        <div class="item-addsOn">
+                                            <label for="addson-dropdown-{{ item.productid }}" class="dropdown-label">Adds On:</label>
+                                            <select id="addson-dropdown-{{ item.productid }}" name="addson_{{ item.productid }}" class="addson-dropdown">
+                                                <option value="" disabled selected>Adds On</option>
+                                                <option data-price="20.00" value="Honey">Honey</option>
+                                                <option data-price="10.00" value="Syrup">Syrup</option>
+                                                <option data-price="15.00" value="Crystal Jelly">Crystal Jelly</option>
+                                                <option data-price="10.00" value="Chia Seeds">Chia Seeds</option>
+                                                <option data-price="0.00" value="None">None</option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="freearea"></div>
+
+        <div class="order-summary-container">
+            <h4 class="order-summary-header">Order Summary</h4>
+
+            <div class="order-summary">
+                <span>Items ({{ cart_count }}): </span>
+                <span>₱{{ "%.2f" | format(total_cost_of_items) }}</span>
+            </div>
+
+            <div class="order-summary">
+                <span>Delivery fee: </span>
+                <span>₱{{ "%.2f" | format(delivery_fee) }}</span>
+            </div>
+
+            <div>
+                <hr>
+            </div>
+
+            <div class="order-summary">
+                <span><strong>Order total: </strong></span>
+                <span id="order-total"><strong>₱{{ "%.2f" | format(order_total) }}</strong></span>
+            </div>
+
+            <div>
+                <hr>
+            </div>
+
+            <form id="orderForm" action="/place_order" method="POST">
+                <div class="orders-details-container">
+                    <span>Delivery Address</span>
+                    <textarea class="input-order delivery-address" placeholder="Purok, Street, Brgy, Municipality" name="delivery-address" id="delivery-address" required></textarea>
+                    <span>Delivery Schedule:</span>
+                    <input type="date" id="delivery-date" name="delivery-date">
+                    <span>Order notes</span>
+                    <textarea class="input-order notes" type="text" placeholder="Order Notes" name="notes" id="notes"></textarea>
+                    <input type="hidden" name="order-total" value="{{ order_total }}">
+                    <button type="submit" class="order-btn" id="placeOrderBtn" disabled>Place Order</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

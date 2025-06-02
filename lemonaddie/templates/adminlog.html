@@ -1,0 +1,22 @@
+{% extends "loglayout.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block main %}
+    <h1>Welcome back!</h1>
+    <h3>Sign in to your account.</h3>
+    <form action="/adminlog" method="POST">
+        <div class="input-col">
+            <div class="input-row">
+                <input id="loginuser" type="text" name="username" placeholder="Username" required autocomplete="off">
+            </div>
+            <div class="input-row">
+                <div class="password-container">
+                    <input id="loginpwd" type="password" name="password" placeholder="Password" id="password" required autocomplete="off">
+                    <span class="eye-icon" onclick="togglePassword('password')">&#128065;</span>
+                </div>
+            </div>
+            <button id="login" class="signup-btn" href="/admin_dashboard">Sign in</button>
+        </div>
+    </form>
+{% endblock %}

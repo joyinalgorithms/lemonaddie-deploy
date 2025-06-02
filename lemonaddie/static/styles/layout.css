@@ -1,0 +1,233 @@
+body {
+    height: 1300px;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-family: "Arima", system-ui;
+    font-size: 20px;
+
+}
+
+.productsTables {
+    margin-bottom: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+p {
+    margin: 0;
+}
+
+.small-text {
+    font-size: 12px;
+}
+
+.larger-text {
+    font-size: 25px;
+}
+
+.sidebar {
+    background-color: antiquewhite;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    transition: width 1s ease, transform 1s ease;
+
+}
+
+.sidebar.closed {
+    width: 80px;
+    overflow: hidden;
+    transition: width 1s ease;
+}
+
+.sidebar-header {
+    margin-bottom: 15px;
+    height: 80px;
+}
+
+.sidebar-pic {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    position: relative;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    color: white;
+    background-color: black;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.sidebar-menu-container {
+    flex: 1;
+    min-height: 300px;
+}
+
+.sidebar-menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-left: 40px;
+    margin-bottom: 18px;
+}
+
+.sidebar-icons {
+    width: 30px;
+}
+
+.icons {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+}
+
+.sidebar-text {
+    padding-left: 30px;
+    flex-shrink: 0;
+}
+
+.copyright {
+    text-align: center;
+    height: 50px;
+    min-width: 80px;
+}
+
+
+
+
+
+
+
+
+.btn-custom {
+    background-color: rgb(218, 165, 32);
+    color: white;
+}
+
+.btn-custom:hover {
+    background-color: rgba(218, 165, 32, 0.8);
+}
+
+.mb-4 {
+    color: black;
+}
+
+main {
+    flex: 1;
+    background-color: rgb(218, 165, 32);
+    margin-left: 250px;
+    position: relative;
+    transition: margin-left 1s ease, transform 1s ease;
+
+}
+
+main.shifted {
+    margin-left: 80px;
+    transition: margin-left 1s ease;
+}
+
+
+
+
+
+
+
+
+.main-header {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    height: 80px;
+    top: 0px;
+    left: 250px;
+    right: 0px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: antiquewhite;
+    transition: left 1s ease;
+    z-index: 100;
+}
+
+.search-container {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+}
+
+.search-box {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.search-input {
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    outline: none;
+    width: 450px;
+    border-radius: 25px 0 0 25px;
+    margin-right: -4;
+}
+
+.search-button {
+    background-color: rgba(218, 165, 32, 0.829);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 0 25px 25px 0;
+}
+
+.user {
+    text-align: center;
+    margin: 0;
+    width: 70px;
+    flex-shrink: 0;
+}
+
+.username {
+    margin-top: -10px;
+}
+
+.cart {
+    width: 70px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.cart-icon {
+    width: 60px;
+}
+
+.cart-order {
+    color: white;
+    background-color: black;
+    position: absolute;
+    top: 2px;
+    right: 7px;
+    padding: 5px 8px;
+    border-radius: 20px;
+}
+
+.cart-full-container {
+    display: flex;
+}

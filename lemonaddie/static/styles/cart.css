@@ -1,0 +1,153 @@
+body {
+    height: auto;
+}
+
+.products-flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.freearea {
+    flex: 1;
+    height: 200px;
+}
+
+.order-header-text {
+    font-weight: 1000;
+    padding-left: 70px;
+}
+
+.cart-container {
+    padding-bottom: 70px;
+    display: flex;
+    padding-right: 50px;
+}
+
+.search-product-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-container {
+    margin-left: 70px;
+    width: 470px;
+    height: 210px;
+    display: flex;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+    margin-bottom: 30px;
+    gap: 20px;
+    font-size: 16px;
+}
+
+.picture-container {
+    width: 170px;
+
+}
+
+.details-container {
+    color: black;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 5px;
+    justify-content: space-between;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.item-quantity {
+    display: flex;
+    width: 50px;
+    gap: 20px;
+}
+
+.input-item-qty {
+    width: 60px;
+}
+
+.order-summary-container {
+    width: 300px;
+    height: 650px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+
+}
+
+.order-summary-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.order-summary {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.order-btn {
+    border: none;
+    color: white;
+    background-color: black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-top: 20px;
+    transition: opacity 0.30s;
+}
+
+.order-btn:hover {
+    opacity: 0.8;
+}
+
+.order-btn:active {
+    opacity: 0.5;
+}
+
+.no-results {
+    color: black;
+
+}
+
+.size-dropdown-container {
+    display: flex;
+    gap: 10px;
+}
+
+.size-dropdown {
+    font-size: 14px;
+    border: none;
+    margin-left: 22px;
+    margin-bottom: 2px;
+}
+
+.size-dropdown:active {
+    border: none;
+}
+
+.addson-dropdown {
+    font-size: 14px;
+    border: none;
+}
+
+.addson-dropdown:active {
+    border: none;
+}
+
+.orders-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-order {
+    padding: 5px 20px;
+}
+
+textarea:focus {
+    border: none;
+    outline: none;
+}

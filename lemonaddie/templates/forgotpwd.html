@@ -1,0 +1,25 @@
+{% extends "loglayout.html" %}
+{% block title %} Forgot Pasword {% endblock %}
+
+{% block main %}
+    <h3>Reset your password.</h3>
+    <div class="input-col">
+        <div class="input-row">
+            <input type="text" placeholder="Username">
+        </div>
+
+        <div class="password-container">
+            <input type="password" placeholder="Password" id="password" autocomplete="off">
+            <span class="eye-icon" onclick="togglePassword('password')">&#128065;</span>
+        </div>
+        <div class="password-container">
+            <input type="password" placeholder="Confirm Password" id="confirm-password" autocomplete="off">
+            <span class="eye-icon" onclick="togglePassword('confirm-password')">&#128065;</span>
+        </div>
+
+
+        <button class="signup-btn">Reset password</button>
+        <a class="signuphere" href="/login">Log in</a>
+    </div>
+
+{% endblock %}

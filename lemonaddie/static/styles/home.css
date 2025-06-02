@@ -1,0 +1,67 @@
+.main-content {
+    position: relative;
+    margin-top: 100px;
+    height: 100%;
+    padding: 20px;
+    padding-bottom: 50px;
+}
+
+.menu-card {
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    position: relative;
+}
+
+.menu-card .btn-select {
+    background-color: #FF9900;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 25px;
+}
+
+.menu-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.mixmatchimg {
+    width: 300px;
+    height: 300px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    height: 150px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 50px;
+}
+
+h5 {
+    color: white;
+}
+
+.logo {
+    width: 200px;
+    height: 150px;
+}
+
+.bottomcol {
+    margin-bottom: 100px;
+}
