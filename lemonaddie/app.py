@@ -699,3 +699,7 @@ def complete_order(order_id):
     except Exception as e:
         print(f"Error: {e}")
         return jsonify({"message": "An error occurred", "error": str(e)}), 500
+
+
+if __name__ == "__main__":
+    app.run()
